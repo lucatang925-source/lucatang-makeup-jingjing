@@ -1,0 +1,801 @@
+/*
+=====================================================
+【样式说明】
+本文件是H5展示页的样式文件
+零代码基础用户无需修改此文件
+如需修改颜色，请在index.html的【全局配置区】修改
+=====================================================
+*/
+
+/* ========== CSS变量定义（主题颜色）========== */
+/* 这些变量会从JavaScript动态读取配置进行更新 */
+:root {
+    /* 主色调 - 用于按钮、重点文字 */
+    --primary-color: #1a1a1a;
+    /* 次要色调 - 用于标签、装饰 */
+    --secondary-color: #666666;
+    /* 背景色 */
+    --bg-color: #ffffff;
+    /* 卡片背景色 */
+    --card-bg-color: #f8f8f8;
+    /* 边框颜色 */
+    --border-color: #e0e0e0;
+    /* 文字颜色 */
+    --text-color: #333333;
+    --text-light: #999999;
+    /* 阴影 */
+    --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 4px 20px rgba(0, 0, 0, 0.12);
+    /* 圆角 */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-full: 50%;
+    /* 间距 */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-xxl: 48px;
+}
+
+/* ========== 基础重置样式 ========== */
+/* 清除默认样式，统一各浏览器表现 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 页面基础设置 */
+html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 图片默认样式 */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 按钮默认样式 */
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+/* 链接默认样式 */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ========== 页面主容器 ========== */
+.page-container {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: var(--spacing-lg);
+    min-height: 100vh;
+}
+
+/* ========== 模块1：顶部个人名片区 ========== */
+.profile-section {
+    text-align: center;
+    padding: var(--spacing-xl) 0;
+    margin-bottom: var(--spacing-xl);
+}
+
+/* 头像外框 */
+.avatar-wrapper {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto var(--spacing-lg);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    border: 3px solid var(--border-color);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.avatar-wrapper:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-hover);
+}
+
+/* 头像图片 */
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 姓名 */
+.profile-name {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+    letter-spacing: 2px;
+}
+
+/* 职业标签容器 */
+.profile-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+/* 单个标签 */
+.profile-tag {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-md);
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    font-size: 13px;
+    color: var(--secondary-color);
+}
+
+/* 所在城市 */
+.profile-city {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+}
+
+.profile-city::before {
+    content: "📍";
+}
+
+/* 个人简介 */
+.profile-intro {
+    font-size: 15px;
+    color: var(--secondary-color);
+    line-height: 1.8;
+    max-width: 320px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+/* ========== 区块标题通用样式 ========== */
+.section-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+}
+
+.subsection-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+}
+
+/* ========== 模块2：化妆师简介区 ========== */
+.about-section {
+    margin-bottom: var(--spacing-xxl);
+}
+
+.about-content {
+    background-color: var(--card-bg-color);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+}
+
+.about-text {
+    font-size: 15px;
+    color: var(--secondary-color);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-lg);
+}
+
+.about-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.about-feature {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-md);
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    font-size: 13px;
+    color: var(--primary-color);
+}
+
+/* ========== 模块3：作品集展示区 ========== */
+.portfolio-section {
+    margin-bottom: var(--spacing-xxl);
+}
+
+/* 分类标签 */
+.portfolio-tabs {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: var(--spacing-sm);
+}
+
+.portfolio-tab {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-size: 15px;
+    color: var(--text-light);
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.portfolio-tab.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+    font-weight: 600;
+}
+
+.portfolio-tab:active {
+    opacity: 0.7;
+}
+
+/* 瀑布流容器 */
+.waterfall-container {
+    column-count: 2;
+    column-gap: var(--spacing-sm);
+    display: none;
+}
+
+.waterfall-container.active {
+    display: block;
+}
+
+/* 瀑布流图片项 */
+.waterfall-item {
+    break-inside: avoid;
+    margin-bottom: var(--spacing-sm);
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    background-color: var(--card-bg-color);
+}
+
+/* 图片懒加载占位 */
+.waterfall-item::before {
+    content: "";
+    display: block;
+    padding-top: 133%; /* 默认4:3比例占位 */
+}
+
+.waterfall-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* 图片加载完成后的样式 */
+.waterfall-item img.loaded {
+    opacity: 1;
+}
+
+.waterfall-item:hover img {
+    transform: scale(1.03);
+}
+
+/* ========== 模块4：服务介绍区 ========== */
+.services-section {
+    margin-bottom: var(--spacing-xxl);
+}
+
+/* 服务时间 */
+.schedule-content {
+    background-color: var(--card-bg-color);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.schedule-list {
+    margin-bottom: var(--spacing-md);
+}
+
+.schedule-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.schedule-item:last-child {
+    border-bottom: none;
+}
+
+.schedule-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.schedule-time {
+    font-size: 14px;
+    color: var(--secondary-color);
+}
+
+.schedule-note {
+    font-size: 13px;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+/* 其他费用 */
+.extra-pricing {
+    margin: var(--spacing-lg) 0;
+    padding-top: var(--spacing-lg);
+    border-top: 1px dashed var(--border-color);
+}
+
+.extra-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.extra-list {
+    margin-bottom: var(--spacing-sm);
+}
+
+.extra-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.extra-item:last-child {
+    border-bottom: none;
+}
+
+.extra-name {
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+.extra-price {
+    font-size: 14px;
+    color: var(--secondary-color);
+}
+
+.extra-note {
+    font-size: 12px;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+/* 服务网格 */
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+/* 服务卡片 */
+.service-card {
+    background-color: var(--card-bg-color);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+/* 服务图标 */
+.service-icon {
+    font-size: 32px;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* 服务名称 */
+.service-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-xs);
+}
+
+/* 服务描述 */
+.service-desc {
+    font-size: 13px;
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
+/* 服务理念 */
+.philosophy-content {
+    background-color: var(--card-bg-color);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.philosophy-text {
+    font-size: 14px;
+    color: var(--secondary-color);
+    line-height: 1.8;
+}
+
+/* 价目表 */
+.pricing-content {
+    background-color: var(--card-bg-color);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-lg);
+}
+
+.pricing-list {
+    margin-bottom: var(--spacing-md);
+}
+
+/* 价格项 */
+.pricing-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.pricing-item:last-child {
+    border-bottom: none;
+}
+
+.pricing-name {
+    font-size: 15px;
+    color: var(--text-color);
+}
+
+.pricing-price {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.pricing-note {
+    font-size: 12px;
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
+/* ========== 模块4：基础合规区 ========== */
+.footer-section {
+    text-align: center;
+    padding: var(--spacing-xl) 0;
+    margin-bottom: 80px; /* 为底部固定栏留空间 */
+}
+
+.copyright-text {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-bottom: var(--spacing-xs);
+}
+
+.icp-text {
+    font-size: 11px;
+    color: var(--text-light);
+}
+
+/* 底部留白 */
+.bottom-spacer {
+    height: 80px;
+}
+
+/* ========== 模块5：联系方式固定悬浮栏 ========== */
+.contact-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--bg-color);
+    border-top: 1px solid var(--border-color);
+    padding: var(--spacing-md) var(--spacing-lg);
+    padding-bottom: calc(var(--spacing-md) + env(safe-area-inset-bottom));
+    display: flex;
+    gap: var(--spacing-md);
+    z-index: 100;
+    max-width: 480px;
+    margin: 0 auto;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* 联系按钮通用样式 */
+.contact-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+/* 复制微信按钮 */
+.wechat-btn {
+    background-color: var(--card-bg-color);
+    color: var(--primary-color);
+    border: 1px solid var(--border-color);
+}
+
+.wechat-btn:active {
+    background-color: var(--border-color);
+    transform: scale(0.98);
+}
+
+/* 拨打电话按钮 */
+.phone-btn {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+.phone-btn:active {
+    opacity: 0.9;
+    transform: scale(0.98);
+}
+
+/* 按钮图标 */
+.btn-icon {
+    font-size: 18px;
+}
+
+/* ========== 图片预览弹窗 ========== */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    touch-action: none;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+/* 关闭按钮 */
+.lightbox-close {
+    position: absolute;
+    top: var(--spacing-lg);
+    right: var(--spacing-lg);
+    width: 44px;
+    height: 44px;
+    font-size: 32px;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+}
+
+.lightbox-close:active {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* 图片计数器 */
+.lightbox-counter {
+    position: absolute;
+    top: var(--spacing-lg);
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffffff;
+    font-size: 14px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: 20px;
+    z-index: 1001;
+}
+
+/* 图片容器 */
+.lightbox-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* 预览图片 */
+.lightbox-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* 操作提示 */
+.lightbox-hint {
+    position: absolute;
+    bottom: calc(var(--spacing-xl) + env(safe-area-inset-bottom));
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 13px;
+    text-align: center;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    pointer-events: none;
+}
+
+/* ========== Toast提示组件 ========== */
+.toast {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 15px;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.toast.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.toast-icon {
+    font-size: 20px;
+}
+
+/* ========== 响应式适配 ========== */
+/* 小屏幕手机适配 */
+@media screen and (max-width: 360px) {
+    .page-container {
+        padding: var(--spacing-md);
+    }
+    
+    .profile-name {
+        font-size: 24px;
+    }
+    
+    .service-grid {
+        gap: var(--spacing-sm);
+    }
+    
+    .service-card {
+        padding: var(--spacing-md);
+    }
+    
+    .contact-btn {
+        padding: var(--spacing-sm) var(--spacing-md);
+        font-size: 14px;
+    }
+}
+
+/* 大屏幕手机适配 */
+@media screen and (min-width: 414px) {
+    .waterfall-container {
+        column-count: 2;
+        column-gap: var(--spacing-md);
+    }
+    
+    .waterfall-item {
+        margin-bottom: var(--spacing-md);
+    }
+}
+
+/* ========== 动画效果 ========== */
+/* 淡入动画 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 模块入场动画 */
+.profile-section,
+.portfolio-section,
+.services-section {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+.portfolio-section {
+    animation-delay: 0.1s;
+}
+
+.services-section {
+    animation-delay: 0.2s;
+}
+
+/* ========== 加载状态 ========== */
+/* 图片加载中的骨架屏效果 */
+.skeleton {
+    background: linear-gradient(90deg, var(--card-bg-color) 25%, var(--border-color) 50%, var(--card-bg-color) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* ========== 隐藏滚动条但保留功能 ========== */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}

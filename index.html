@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <!-- 
+    =====================================================
+    【配置说明】
+    本页面是化妆师个人展示H5网页
+    所有可修改的内容都在下方的【全局配置区】
+    零代码基础用户只需修改配置区的内容即可
+    =====================================================
+    -->
+    <meta charset="UTF-8">
+    <!-- 移动端适配：禁止缩放，适配各种屏幕 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>个人展示页</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- 
+=====================================================
+【全局配置区 - 小白修改入口】
+只需修改这里的内容，就能更新整个页面的显示
+不需要修改页面其他位置的代码
+=====================================================
+-->
+<script>
+    // ==================== 全局配置对象 ====================
+    // 【小白注意】：只需要修改等号右边引号里的内容
+    // 所有图片都用外链地址，可以从图床获取
+    // =====================================================
+    window.PAGE_CONFIG = {
+        
+        // ========== 1. 页面基础信息配置 ==========
+        pageTitle: "化妆师静静 | 专业新娘跟妆",  // 【修改】浏览器标签页显示的标题
+        
+        // ========== 2. 个人名片信息配置 ==========
+        profile: {
+            // 【修改】头像图片链接
+            // 支持本地路径或网络链接
+            avatar: "images/avatar.jpg",
+            
+            // 【修改】姓名
+            name: "静静",
+            
+            // 【修改】职业标签（多个标签用逗号分隔）
+            tags: ["专业化妆师", "新娘跟妆", "婚纱造型", "秀禾妆造"],
+            
+            // 【修改】所在城市
+            city: "重庆",
+            
+            // 【修改】一句话个人简介
+            intro: "用专业妆造诠释你的独特美，让每位新娘都成为最美的新娘"
+        },
+        
+        // ========== 3. 化妆师简介模块配置 ==========
+        about: {
+            // 【修改】简介标题
+            title: "关于我",
+            // 【修改】详细简介内容
+            content: "专业化妆师静静，拥有多年新娘妆造经验。专注于为每位新娘打造专属妆容，从婚纱到秀禾，从妆容到发型，用心雕琢每一个细节。我相信，每一位新娘都值得在最重要的日子里绽放最美的光彩。",
+            // 【修改】特色标签
+            features: ["专业认证", "资深经验", "一对一服务", "高端化妆品"]
+        },
+        
+        // ========== 4. 作品集图片配置 ==========
+        // 【重要】作品分为两类：婚纱妆造 和 秀禾妆造
+        // 使用本地图片路径，无需上传到图床
+        portfolio: {
+            // 婚纱妆造作品（image3 - image24，排除png文件）
+            wedding: [
+                "images/image3.jpeg",
+                "images/image4.jpeg",
+                "images/image5.jpeg",
+                "images/image7.jpeg",
+                "images/image8.jpeg",
+                "images/image9.jpeg",
+                "images/image10.jpeg",
+                "images/image11.jpeg",
+                "images/image12.jpeg",
+                "images/image13.jpeg",
+                "images/image14.jpeg",
+                "images/image15.jpeg",
+                "images/image16.jpeg",
+                "images/image17.jpeg",
+                "images/image18.jpeg",
+                "images/image19.jpeg",
+                "images/image21.jpeg",
+                "images/image22.jpeg",
+                "images/image23.jpeg",
+                "images/image24.jpeg"
+            ],
+            // 秀禾妆造作品（image25 - image38）
+            xiuhu: [
+                "images/image25.jpeg",
+                "images/image26.jpeg",
+                "images/image27.jpeg",
+                "images/image28.jpeg",
+                "images/image29.jpeg",
+                "images/image30.jpeg",
+                "images/image31.jpeg",
+                "images/image32.jpeg",
+                "images/image33.jpeg",
+                "images/image34.jpeg",
+                "images/image35.jpeg",
+                "images/image36.jpeg",
+                "images/image37.jpeg",
+                "images/image38.jpeg"
+            ]
+        },
+        
+        // ========== 5. 服务介绍配置 ==========
+        services: {
+            // 【修改】服务内容标题
+            title: "服务内容",
+            
+            // 【修改】服务项目列表 - 根据文档实际内容
+            items: [
+                {
+                    icon: "💄",  // 【修改】图标（可用emoji）
+                    name: "专业新娘跟妆",  // 【修改】服务名称
+                    desc: "婚礼当天新娘妆面及整体造型3-5款，提供饰品，可试妆确定妆容造型"  // 【修改】服务描述
+                },
+                {
+                    icon: "✨",
+                    name: "婚纱妆造",
+                    desc: "西式婚纱妆容设计，打造优雅浪漫新娘"
+                },
+                {
+                    icon: "🏮",
+                    name: "秀禾妆造",
+                    desc: "中式秀禾妆容设计，传统与时尚的完美结合"
+                },
+                {
+                    icon: "👰",
+                    name: "妈妈妆/伴娘妆",
+                    desc: "让婚礼当天每位女性都光彩照人"
+                }
+            ],
+            
+            // 【修改】服务时间
+            schedule: {
+                title: "服务时间",
+                items: [
+                    { name: "午宴", time: "早上7:00 - 敬酒结束14:00" },
+                    { name: "晚宴", time: "下午13:00 - 敬酒结束19:00" }
+                ],
+                note: "* 如化妆时间提前需付RMB100/1小时加时费"
+            },
+            
+            // 【修改】服务理念
+            philosophy: {
+                title: "服务理念",
+                content: "每一张脸庞都是独特的艺术品。我用心倾听每位新娘的需求，用专业的化妆技术和审美眼光，为你打造最适合的妆容，让你在最重要的日子里绽放最美的光彩。"
+            },
+            
+            // 【修改】价目表 - 根据文档实际内容
+            pricing: {
+                title: "服务报价",
+                // 【修改】价格项目，可自由增减
+                items: [
+                    { name: "新娘试妆", price: "￥300" },
+                    { name: "新娘早妆", price: "￥888" },
+                    { name: "新娘全天跟妆", price: "￥1888起" },
+                    { name: "妈妈妆/伴娘妆", price: "￥288/人" }
+                ],
+                // 【修改】其他费用
+                extra: {
+                    title: "其它费用",
+                    items: [
+                        { name: "异地车程2小时内", price: "￥200" },
+                        { name: "异地车程2-4小时", price: "￥400" },
+                        { name: "异地车程4小时以上", price: "另行商议" }
+                    ],
+                    note: "* 异地费存在化妆师提前一天到达工作目的地"
+                },
+                // 【修改】价格说明
+                note: "* 具体价格根据婚礼日期、地点、造型套数等因素调整，欢迎咨询详谈"
+            }
+        },
+        
+        // ========== 6. 联系方式配置 ==========
+        contact: {
+            // 【修改】微信号 - 用于一键复制
+            wechat: "JingJingMakeup",
+            
+            // 【修改】手机号 - 用于一键拨打
+            phone: "138-1234-5678",
+            
+            // 【修改】按钮显示文字
+            wechatBtnText: "复制微信号",
+            phoneBtnText: "拨打电话"
+        },
+        
+        // ========== 7. 版权信息配置 ==========
+        copyright: {
+            // 【修改】版权文字
+            text: "© 2024 静静新娘妆造工作室 版权所有",
+            // 【修改】备案号（没有可留空）
+            icp: ""
+        },
+        
+        // ========== 7. 主题颜色配置 ==========
+        // 【修改】全局主色调 - 支持一键换色
+        // 格式：#六位颜色代码 或 颜色名称如 black、white、gray
+        theme: {
+            // 主色调（按钮、重点文字）
+            primaryColor: "#1a1a1a",
+            // 次要色调（标签、装饰）
+            secondaryColor: "#666666",
+            // 背景色
+            bgColor: "#ffffff",
+            // 卡片背景色
+            cardBgColor: "#f8f8f8",
+            // 边框颜色
+            borderColor: "#e0e0e0"
+        }
+    };
+</script>
+
+<!-- 
+=====================================================
+【页面主体结构 - 无需修改】
+以下代码实现页面布局和交互功能
+零代码基础用户无需修改此处
+=====================================================
+-->
+
+<!-- 页面主容器 -->
+<div class="page-container">
+    
+    <!-- ========== 模块1：顶部个人名片区 ========== -->
+    <section class="profile-section" id="profile">
+        <!-- 头像区域 -->
+        <div class="avatar-wrapper">
+            <!-- 头像图片，从配置读取 -->
+            <img class="avatar-img" id="avatarImg" src="" alt="头像">
+        </div>
+        
+        <!-- 姓名 -->
+        <h1 class="profile-name" id="profileName"></h1>
+        
+        <!-- 职业标签 -->
+        <div class="profile-tags" id="profileTags"></div>
+        
+        <!-- 所在城市 -->
+        <div class="profile-city" id="profileCity"></div>
+        
+        <!-- 个人简介 -->
+        <p class="profile-intro" id="profileIntro"></p>
+    </section>
+    
+    <!-- ========== 模块2：化妆师简介区 ========== -->
+    <section class="about-section" id="about">
+        <h2 class="section-title" id="aboutTitle"></h2>
+        <div class="about-content">
+            <p class="about-text" id="aboutText"></p>
+            <div class="about-features" id="aboutFeatures"></div>
+        </div>
+    </section>
+    
+    <!-- ========== 模块3：作品集展示区 ========== -->
+    <section class="portfolio-section" id="portfolio">
+        <!-- 区块标题 -->
+        <h2 class="section-title">作品赏析</h2>
+        
+        <!-- 分类标签 -->
+        <div class="portfolio-tabs" id="portfolioTabs">
+            <button class="portfolio-tab active" data-category="wedding">婚纱妆造</button>
+            <button class="portfolio-tab" data-category="xiuhu">秀禾妆造</button>
+        </div>
+        
+        <!-- 婚纱妆造瀑布流 -->
+        <div class="waterfall-container active" id="weddingContainer" data-category="wedding">
+            <!-- 图片将通过JavaScript动态插入 -->
+        </div>
+        
+        <!-- 秀禾妆造瀑布流 -->
+        <div class="waterfall-container" id="xiuhuContainer" data-category="xiuhu">
+            <!-- 图片将通过JavaScript动态插入 -->
+        </div>
+    </section>
+    
+    <!-- ========== 模块4：服务介绍区 ========== -->
+    <section class="services-section" id="services">
+        <!-- 服务内容 -->
+        <div class="service-content">
+            <h2 class="section-title" id="serviceTitle"></h2>
+            <div class="service-grid" id="serviceGrid"></div>
+        </div>
+        
+        <!-- 服务时间 -->
+        <div class="schedule-content">
+            <h3 class="subsection-title" id="scheduleTitle"></h3>
+            <div class="schedule-list" id="scheduleList"></div>
+            <p class="schedule-note" id="scheduleNote"></p>
+        </div>
+        
+        <!-- 服务理念 -->
+        <div class="philosophy-content">
+            <h3 class="subsection-title" id="philosophyTitle"></h3>
+            <p class="philosophy-text" id="philosophyText"></p>
+        </div>
+        
+        <!-- 价目表 -->
+        <div class="pricing-content">
+            <h3 class="subsection-title" id="pricingTitle"></h3>
+            <div class="pricing-list" id="pricingList"></div>
+            <!-- 其他费用 -->
+            <div class="extra-pricing" id="extraPricing">
+                <h4 class="extra-title" id="extraTitle"></h4>
+                <div class="extra-list" id="extraList"></div>
+                <p class="extra-note" id="extraNote"></p>
+            </div>
+            <p class="pricing-note" id="pricingNote"></p>
+        </div>
+    </section>
+    
+    <!-- ========== 模块4：基础合规区 ========== -->
+    <section class="footer-section" id="footer">
+        <p class="copyright-text" id="copyrightText"></p>
+        <p class="icp-text" id="icpText"></p>
+    </section>
+    
+    <!-- 底部留白，防止被固定栏遮挡 -->
+    <div class="bottom-spacer"></div>
+</div>
+
+<!-- ========== 模块5：联系方式固定悬浮栏 ========== -->
+<div class="contact-bar" id="contactBar">
+    <!-- 复制微信号按钮 -->
+    <button class="contact-btn wechat-btn" id="wechatBtn">
+        <span class="btn-icon">📋</span>
+        <span class="btn-text" id="wechatBtnText"></span>
+    </button>
+    
+    <!-- 拨打电话按钮 -->
+    <a class="contact-btn phone-btn" id="phoneBtn" href="">
+        <span class="btn-icon">📞</span>
+        <span class="btn-text" id="phoneBtnText"></span>
+    </a>
+</div>
+
+<!-- ========== 图片预览弹窗 ========== -->
+<div class="lightbox" id="lightbox">
+    <!-- 关闭按钮 -->
+    <button class="lightbox-close" id="lightboxClose">&times;</button>
+    
+    <!-- 图片计数器 -->
+    <div class="lightbox-counter" id="lightboxCounter">1 / 12</div>
+    
+    <!-- 图片容器 -->
+    <div class="lightbox-container" id="lightboxContainer">
+        <img class="lightbox-img" id="lightboxImg" src="" alt="预览">
+    </div>
+    
+    <!-- 操作提示 -->
+    <div class="lightbox-hint" id="lightboxHint">
+        左右滑动切换 · 双指缩放 · 长按保存
+    </div>
+</div>
+
+<!-- ========== Toast提示组件 ========== -->
+<div class="toast" id="toast">
+    <span class="toast-icon" id="toastIcon">✓</span>
+    <span class="toast-message" id="toastMessage"></span>
+</div>
+
+<!-- 加载主脚本 -->
+<script src="js/main.js"></script>
+
+</body>
+</html>
